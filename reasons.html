@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reasons I Love You</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 1.6em;
+      margin-bottom: 15px;
+      color: #fff;
+      text-shadow: 1px 1px 8px rgba(0,0,0,0.3);
+    }
+
+    .reason-card {
+      font-size: 1.1em;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.25);
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 12px;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 0.4s ease-in-out;
+    }
+
+    .reason-card.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 1em;
+      background: #ff758c;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ff507a;
+      transform: scale(1.05);
+    }
+
+    .home-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #ff7f9e;
+      color: white;
+      border: none;
+      font-size: 14px;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: 0.3s;
+      z-index: 10;
+    }
+
+    .home-btn:hover {
+      background-color: #ff507a;
+      transform: scale(1.05);
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: white;
+      border-radius: 50%;
+      animation: sparkle 3s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes sparkle {
+      from { transform: translateY(0) scale(1); opacity: 1; }
+      to { transform: translateY(-100vh) scale(0.5); opacity: 0; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 1.4em; }
+      .reason-card { font-size: 1em; padding: 12px; }
+      .btn, .home-btn { font-size: 0.9em; padding: 8px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <button class="home-btn" onclick="goHome()">🏠 Home</button>
+  <div class="container">
+    <h1>💖 Reasons I Love You</h1>
+    <div id="reason" class="reason-card">Tap the button to see a reason 💕</div>
+    <button class="btn" onclick="showReason()">Show Me a Reason</button>
+  </div>
+
+  <script>
+    function goHome() {
+      window.location.href = "index.html";
+    }
+
+    const reasons = [
+      "Your smile lights up my world 🌞",
+      "You always support me 💪",
+      "Your laugh is my favorite song 🎶",
+      "You make every moment magical ✨",
+      "You are my safe place 💕",
+      "You believe in me when I doubt myself 🌟",
+      "You make ordinary days special 🌸",
+      "You love me for who I am ❤️",
+      "You bring peace to my storms 🌈",
+      "You are my forever and always 💍"
+    ];
+
+    function showReason() {
+      const reasonBox = document.getElementById("reason");
+      const randomIndex = Math.floor(Math.random() * reasons.length);
+      reasonBox.textContent = reasons[randomIndex];
+      reasonBox.classList.remove("show");
+      setTimeout(() => reasonBox.classList.add("show"), 50);
+    }
+
+    // Sparkle animation
+    function createSparkles() {
+      for (let i = 0; i < 15; i++) {
+        const sparkle = document.createElement("div");
+        sparkle.classList.add("sparkle");
+        sparkle.style.left = Math.random() * window.innerWidth + "px";
+        sparkle.style.top = Math.random() * window.innerHeight + "px";
+        sparkle.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 5000);
+      }
+    }
+    setInterval(createSparkles, 1000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Anniversary ❤️</title>
+  <style>/* General button animation */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: #ff69b4;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover animation */
+.btn:hover {
+  background: #ff1493;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0px 8px 20px rgba(255, 20, 147, 0.4);
+}
+
+/* Click (active) animation */
+.btn:active {
+  transform: scale(0.95);
+  box-shadow: 0px 4px 10px rgba(255, 20, 147, 0.2);
+}
+
+/* Floating entrance animation */
+@keyframes floatUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/* Apply float entrance animation */
+.btn {
+  animation: floatUp 0.8s ease forwards;
+}
+
+/* Staggered delays for each button */
+.btn:nth-of-type(1) {
+  animation-delay: 0.3s;
+}
+.btn:nth-of-type(2) {
+  animation-delay: 0.6s;
+}
+.btn:nth-of-type(3) {
+  animation-delay: 0.9s;
+}
+</style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="index-page">
+  <audio id="bg-music" loop>
+    <source src="https://assets.codepen.io/572859/soft-piano-background.mp3" type="audio/mpeg" />
+  </audio>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="monthsary-letter" id="monthsary-letter" title="Click to view all monthsary letters">
+      Monthsary Letter: Month 0 of our journey 💖
+    </div>
+    <div class="countdown" id="countdown">Next Anniversary in: 0d 0h 0m 0s</div>
+  </nav>
+  <div class="overlay">
+    <h1 id="typewriter"></h1>
+    <button class="btn pulse" onclick="our_memories()">Our Beautiful Memories</button>
+<br />
+<button class="btn small pulse reasons" onclick="reason()">Reasons Why I Love You</button>
+<br />
+<button class="btn small pulse quiz" onclick="quiz_time()">Quiz Time</button>
+  </div>
+<div id="monthsary-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+    <div class="modal-content">
+      <button class="close-btn" id="modal-close" aria-label="Close modal">&times;</button>
+      <h2 id="modal-title">Monthsary Letters (Oct 7, 2023 - Oct 7, 2025)</h2>
+      <ul id="monthsary-list"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

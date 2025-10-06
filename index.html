@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Love Story 💕</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Left Panel -->
+    <div class="left-panel">
+      <div class="top-left">
+        <h1>Our Story 💖</h1>
+        <p>
+          It all began on <strong>October 7, 2023</strong> — a story full of laughter, love, and memories.
+          Every day since has been a chapter of us growing stronger together. 💕
+        </p>
+      </div>
+
+      <div class="bottom-left">
+        <nav>
+          <button onclick="our_memories()">Memories</button>
+          <button onclick="reason()">Reasons I Love You</button>
+          <button id="monthsary-letter">Monthsary Letters</button>
+          <button onclick="quiz_time()">Fun Quiz</button>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="right-panel">
+      <div class="countdown-container">
+  <span class="heart">❤️</span>
+  <div>
+    <h2>Countdown</h2>
+    <div id="countdown">00d 00h 00m 00s</div>
+  </div>
+</div>
+
+
+      <div class="center-content">
+        <h1>Charles & Daphne</h1>
+        <img src="assets/photos/12.jpg" alt="Us" class="main-photo" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Monthsary Modal -->
+  <div id="monthsary-modal" class="modal">
+    <div class="modal-content">
+      <span id="modal-close" class="close">&times;</span>
+      <h2>💌 Our Monthsary Letters</h2>
+      <ul id="monthsary-list"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
